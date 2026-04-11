@@ -468,7 +468,7 @@ def main():
             client.i18n("clean_cache"),
             client.i18n("exit"),
         ]
-        main_menu.insert(4, client.i18n("solve_captcha"))
+        # main_menu.insert(4, client.i18n("solve_captcha"))
         main_menu.insert(4, client.i18n("lottery"))
         main_menu.insert(4, client.i18n("switch_use_prepare"))
         main_menu.insert(4, client.i18n("bws"))
