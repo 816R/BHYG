@@ -181,6 +181,7 @@ class BHYG(metaclass=ProtectedMeta):
             qr.print_ascii(invert=True)
             img = qr.make_image(fill_color="black", back_color="white")
             img.show()
+            img.save("bhyg_qr_code.png")
             logger.info(self.i18n("qr_code_scan"))
             while True:
                 try:

@@ -91,6 +91,7 @@ def select_ticket():
     if client.config["hotProject"]:
         logger.warning(client.i18n("hot_project"))
     client.config["id_bind"] = resp["data"]["id_bind"]
+    client.config["is_changfan"] = False
     # prefill support
     if resp["data"].get("preFillSupport", False) and not resp["data"].get("preFillBaseInfo", None):
         logger.info(client.i18n("prefill_support"))
@@ -163,7 +164,6 @@ def select_ticket():
             client.save_config()
             return
 
-    client.config["is_changfan"] = False
     changfan = client.client.get(
         "https://show.bilibili.com/api/ticket/linkgoods/list?project_id={}&page_type=0".format(
             project_id

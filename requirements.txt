@@ -17,3 +17,4 @@ wmi
 cryptography
 playsound3
 py-machineid
+pillow

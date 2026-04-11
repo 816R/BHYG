@@ -20,3 +20,4 @@ user_devices.db
 proxy/*
 tools/*
 api_private.py
+bhyg_qr_code.png
