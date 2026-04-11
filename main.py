@@ -65,9 +65,6 @@ def select_ticket():
         client.i18n("project_id"), validate=lambda text: text.isdigit(),
         default=str(DEFAULT_PID),
     ).ask()
-    project_id = questionary.text(
-        client.i18n("project_id"), validate=lambda text: text.isdigit()
-    ).ask()
     if not project_id:
         logger.info(client.i18n("canceled"))
         return
