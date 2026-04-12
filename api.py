@@ -357,8 +357,12 @@ class BHYG(metaclass=ProtectedMeta):
 
     def load_phrases(self, lang="zh_CN"):
         try:
+            try:
+                base_path = sys._MEIPASS
+            except Exception:
+                base_path = os.path.dirname(__file__)
             locale_file_path = (
-                sys._MEIPASS + os.path.sep + f"locale/{lang}.json"
+                base_path + os.path.sep + f"locale/{lang}.json"
             )
             with open(locale_file_path, "r", encoding="utf-8") as f:
                 return json.load(f)
