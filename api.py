@@ -604,7 +604,7 @@ class BHYG(metaclass=ProtectedMeta):
             if (
                 self.config["buyer"] == ""
                 or self.config["tel"] == ""
-                or len(self.config["tel"]) != 11
+                or len(self.config.get("tel", "")) != 11
             ):
                 return False
         elif self.config["id_bind"] == 1 or self.config["id_bind"] == 2:
