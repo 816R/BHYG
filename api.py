@@ -73,6 +73,11 @@ class BHYG(metaclass=ProtectedMeta):
         self.username = None
         self.order_base = "https://show.bilibili.com"
         logger.remove()
+        logger.add(
+            "bhyg_logs/BHYG_{time:YYYY-MM-DD_HH-mm-ss}.log",
+            level="DEBUG",
+            format="<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <cyan>{function}</cyan> | <level>{level: <8}</level> | <level>{message}</level>",
+        )
         if not self.DEBUG:
             logger.add(
                 sys.stdout,
