@@ -1407,12 +1407,12 @@ class BHYG(metaclass=ProtectedMeta):
         )
         buyers = ""
         if self.config.get("id_bind", None) == 0:
-            buyers = self.config["buyer"]
+            buyers = self.config.get("buyer", "未知")
         elif self.config.get("id_bind", None) == 1 or self.config.get("id_bind", None) == 2:
             buyers = ", ".join(
                 [
                     f"{buyer['name'][0]}{'*' * (len(buyer['name']) - 1)}"
-                    for buyer in self.config["id_buyer"]
+                    for buyer in self.config.get("id_buyer", [])
                 ]
             )
         else:
