@@ -126,6 +126,7 @@ class BHYG(metaclass=ProtectedMeta):
             self.config["uid_buyer"] = {}
         if "order_interval" not in self.config:
             self.config["order_interval"] = 0.3
+        self.click = None
         if USE_CAPTCHA:
             try:
                 logger.info(self.i18n("setting_up_captcha_system"))
