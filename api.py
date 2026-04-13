@@ -1213,7 +1213,7 @@ class BHYG(metaclass=ProtectedMeta):
             )
         logger.debug("Order create response:")
         logger.debug(resp)
-        if resp["code"] == 0:
+        if resp["code"] == 0 and "defaultBBR" not in resp.get("message", ""):
             logger.success(self.i18n("order_create_success"))
             # TODO: After success event
             logger.debug("Order create success, doing after success event...")
@@ -1317,6 +1317,8 @@ class BHYG(metaclass=ProtectedMeta):
                 else:
                     logger.error(self.i18n("push_failed"))
             return True
+        elif resp["code"] == 0 and "defaultBBR" in resp.get("message", ""):
+            logger.warning(self.i18n("request_default_bbr"))
         elif resp["code"] == -114514:
             logger.error(self.i18n("request_failed").format(message=resp["message"]))
         # MODEL: STAGE 0
