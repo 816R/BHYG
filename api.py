@@ -1321,6 +1321,10 @@ class BHYG(metaclass=ProtectedMeta):
             logger.warning(self.i18n("request_default_bbr"))
         elif resp["code"] == -114514:
             logger.error(self.i18n("request_failed").format(message=resp["message"]))
+        elif resp["code"] == 504:
+            logger.error(self.i18n("504_gateway_timeout"))
+        elif resp["code"] == 503:
+            logger.error(self.i18n("503_service_unavailable"))
         # MODEL: STAGE 0
         elif resp["code"] == 412:
             self.count_412 += 1
