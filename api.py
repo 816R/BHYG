@@ -953,7 +953,7 @@ class BHYG(metaclass=ProtectedMeta):
                     logger.debug(prereq_resp.headers)
                     while (
                         reserve_begin_time
-                        + self.config.get("after_sale_begin_delay", 0)
+                        + self.config.get("after_sale_begin_delay", 300)
                         > time.time()
                     ):
                         continue
@@ -1517,7 +1517,7 @@ class BHYG(metaclass=ProtectedMeta):
                 logger.debug(prereq_resp.headers)
                 while (
                     self.config["sale_start_time"]
-                    + self.config.get("after_sale_begin_delay", 0)
+                    + self.config.get("after_sale_begin_delay", 300)
                     > time.time()
                 ):
                     continue
@@ -1881,7 +1881,7 @@ class BHYG(metaclass=ProtectedMeta):
 
         info_msg_lines.append(
             self.i18n("cc_saledelay").format(
-                delay=self.config.get("after_sale_begin_delay", 0)
+                delay=self.config.get("after_sale_begin_delay", 300)
             )
         )
 
